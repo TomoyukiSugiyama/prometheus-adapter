@@ -6,6 +6,6 @@ releases:
   - name: prometheus-adapter
     namespace: prometheus
     chart: prometheus-community/prometheus-adapter
-    version: v0.10.0
+    version: 4.2.0
     values:
       - values.yaml
