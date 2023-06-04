@@ -115,14 +115,14 @@ readinessProbe:
 rules:
   default: true
 
-  custom:
-    - seriesQuery: '{__name__=~"^some_metric$"}'
-      resources:
-        template: <<.Resource>>
-      name:
-       matches: ""
-       as: "my_custom_metric"
-      metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
+  custom: []
+    # - seriesQuery: '{__name__=~"^some_metric$"}'
+    #   resources:
+    #     template: <<.Resource>>
+    #   name:
+    #    matches: ""
+    #    as: "my_custom_metric"
+    #   metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
     # - seriesQuery: '{__name__=~"^some_metric_count$"}'
     #   resources:
     #     template: <<.Resource>>
@@ -135,7 +135,14 @@ rules:
   # default, custom, external and resource entries
   existing:
 
-  external: []
+  external:
+    - seriesQuery: '{__name__=~"^some_metric$"}'
+      resources:
+        template: <<.Resource>>
+      name:
+       matches: ""
+       as: "my_external_metric"
+      metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
     # - seriesQuery: '{__name__=~"^some_metric_count$"}'
     #   resources:
     #     template: <<.Resource>>
