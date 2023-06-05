@@ -138,10 +138,10 @@ rules:
   external:
     - seriesQuery: '{__name__=~"^some_metric$"}'
       resources:
-        template: <<.Resource>>
+        namespaced: false
       name:
        matches: ""
-       as: "my_external_metric"
+       as: "my_external_metrics"
       metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
     # - seriesQuery: '{__name__=~"^some_metric_count$"}'
     #   resources:
